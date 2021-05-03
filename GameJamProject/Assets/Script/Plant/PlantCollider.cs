@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlantCollider : MonoBehaviour
 {
+    public GameObject carnivore;
     public GameObject herbivore;
     public Rigidbody2D plantRb;
 
-    public static bool plantOn = true;
+    public static bool plantOn;
+    Vector2 originalPos;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        originalPos = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -26,9 +28,15 @@ public class PlantCollider : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Herbivore"))
         {
-            this.gameObject.GetComponent<PlayerControl>().enabled = false;
-            plantRb.drag = 5;
-            herbivore.gameObject.GetComponent<PlayerControl>().enabled = true;
+            
+            plantRb.drag = 2;
+            transform.position = originalPos;
+            HerbivoreCollider.herbivoreOn = true;
+            this.gameObject.SetActive(false);
+            carnivore.gameObject.SetActive(true);
+            BugCollider.bugOn = false;
+            plantOn = false;
+            
         }
 
     }

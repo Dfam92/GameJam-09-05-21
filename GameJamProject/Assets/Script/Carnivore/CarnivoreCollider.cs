@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class CarnivoreCollider : MonoBehaviour
 {
+    public GameObject plant;
     public GameObject bug;
     public Rigidbody2D carnivoreRb;
 
-    public static bool carnivoreOn = true;
+    public static bool carnivoreOn;
+    Vector2 originalPos;
 
     // Start is called before the first frame update
 
     void Start()
     {
-        
+        originalPos = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -27,9 +29,13 @@ public class CarnivoreCollider : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Bug") && BugCollider.bugOn == false)
         {
-            this.gameObject.GetComponent<PlayerControl>().enabled = false;
-            carnivoreRb.drag = 5;
-            bug.gameObject.GetComponent<PlayerControl>().enabled = true;
+            
+            carnivoreRb.drag = 2;
+            transform.position = originalPos;
+            BugCollider.bugOn = true;
+            this.gameObject.SetActive(false);
+            plant.gameObject.SetActive(true);
+            carnivoreOn = false;
         }
     }
 }

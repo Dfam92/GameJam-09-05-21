@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlantMovement : MonoBehaviour
 {
+    
     public Rigidbody2D plantRb;
     [SerializeField] private float speed;
     [SerializeField] private float timeToStartUp;
@@ -22,9 +23,18 @@ public class PlantMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-       
+       if(PlantCollider.plantOn == true)
+        {
+            CancelInvoke();
+            this.gameObject.GetComponent<PlayerControl>().enabled = true;
+
+        }
+        else
+        {
+            this.gameObject.GetComponent<PlayerControl>().enabled = false;
+        }
     }
 
    
