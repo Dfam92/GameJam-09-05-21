@@ -31,7 +31,6 @@ public class BugCollider : MonoBehaviour
         if (collision.gameObject.CompareTag("Plant"))
         {
             
-            bugRb.drag = 2;
             this.gameObject.SetActive(false);
             transform.position = originalPos;
             PlantCollider.plantOn = true;

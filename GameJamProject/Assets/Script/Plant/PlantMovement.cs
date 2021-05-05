@@ -28,12 +28,13 @@ public class PlantMovement : MonoBehaviour
        if(PlantCollider.plantOn == true)
         {
             CancelInvoke();
-            this.gameObject.GetComponent<PlayerControl>().enabled = true;
-
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.GetComponent<PlayerPlantControl>().enabled = true;
         }
         else
         {
-            this.gameObject.GetComponent<PlayerControl>().enabled = false;
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(0).gameObject.GetComponent<PlayerPlantControl>().enabled = true;
         }
     }
 

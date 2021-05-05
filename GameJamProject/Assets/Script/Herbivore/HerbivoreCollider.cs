@@ -11,8 +11,6 @@ public class HerbivoreCollider : MonoBehaviour
     public static bool herbivoreOn;
     Vector2 originalPos;
 
-
-
     // Start is called before the first frame update
 
     void Start()
@@ -31,8 +29,6 @@ public class HerbivoreCollider : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Carnivore"))
         {
-            
-            herbivoreRb.drag = 2;
             transform.position = originalPos;
             CarnivoreCollider.carnivoreOn = true;
             this.gameObject.SetActive(false);

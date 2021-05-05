@@ -8,8 +8,6 @@ public class HerbivoreMovement : MonoBehaviour
     public Rigidbody2D herbivoreRb;
     [SerializeField] private float speedHerbivore;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +18,13 @@ public class HerbivoreMovement : MonoBehaviour
         if(HerbivoreCollider.herbivoreOn == true)
         {
             CancelInvoke();
-            this.gameObject.GetComponent<PlayerControl>().enabled = true;
+            this.gameObject.GetComponent<PlayerHerbivoreControl>().enabled = true;
         }
         else
         {
-            this.gameObject.GetComponent<PlayerControl>().enabled = false;
+            this.gameObject.GetComponent<PlayerHerbivoreControl>().enabled = false;
         }
-        
     }
-
 
     private void HerbivoreMove()
     {

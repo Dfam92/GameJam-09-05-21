@@ -30,7 +30,7 @@ public class CarnivoreCollider : MonoBehaviour
         if (collision.gameObject.CompareTag("Bug") && BugCollider.bugOn == false)
         {
             
-            carnivoreRb.drag = 2;
+            
             transform.position = originalPos;
             BugCollider.bugOn = true;
             this.gameObject.SetActive(false);

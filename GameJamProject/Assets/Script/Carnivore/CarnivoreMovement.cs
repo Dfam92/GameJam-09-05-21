@@ -22,11 +22,11 @@ public class CarnivoreMovement : MonoBehaviour
         if (CarnivoreCollider.carnivoreOn == true)
         {
             CancelInvoke();
-            this.gameObject.GetComponent<PlayerControl>().enabled = true;
+            this.gameObject.GetComponent<PlayerCarnivoreControl>().enabled = true;
         }
        else
         {
-            this.gameObject.GetComponent<PlayerControl>().enabled = false;
+            this.gameObject.GetComponent<PlayerCarnivoreControl>().enabled = false;
         }
     }
 

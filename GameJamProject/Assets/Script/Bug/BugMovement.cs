@@ -25,11 +25,11 @@ public class BugMovement : MonoBehaviour
         if (BugCollider.bugOn == true)
         {
             CancelInvoke();
-            this.gameObject.GetComponent<PlayerControl>().enabled = true;
+            this.gameObject.GetComponent<PlayerBugControl>().enabled = true;
         }
         else
         {
-            this.gameObject.GetComponent<PlayerControl>().enabled = false;
+            this.gameObject.GetComponent<PlayerBugControl>().enabled = false;
         }
     }
 
