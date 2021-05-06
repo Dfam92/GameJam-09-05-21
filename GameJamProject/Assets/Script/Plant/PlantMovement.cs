@@ -6,6 +6,7 @@ public class PlantMovement : MonoBehaviour
 {
     
     public Rigidbody2D plantRb;
+    
     [SerializeField] private float speed;
     [SerializeField] private float timeToStartUp;
     [SerializeField] private float timeToStartDown;
@@ -30,15 +31,20 @@ public class PlantMovement : MonoBehaviour
             CancelInvoke();
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(0).gameObject.GetComponent<PlayerPlantControl>().enabled = true;
+            transform.GetChild(1).gameObject.SetActive(true);
         }
         else
         {
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(0).gameObject.GetComponent<PlayerPlantControl>().enabled = true;
+            transform.GetChild(1).gameObject.SetActive(false);
+
         }
     }
 
-   
+    
+
+
 
     private void UpperMovement()
     {

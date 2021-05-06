@@ -7,6 +7,7 @@ public class BugMovement : MonoBehaviour
     
     public GameObject carnivore;
     public Rigidbody2D bugRb;
+    
     [SerializeField] private float speedbug;
 
 
@@ -26,12 +27,15 @@ public class BugMovement : MonoBehaviour
         {
             CancelInvoke();
             this.gameObject.GetComponent<PlayerBugControl>().enabled = true;
+            transform.GetChild(0).gameObject.SetActive(true);
         }
         else
         {
             this.gameObject.GetComponent<PlayerBugControl>().enabled = false;
+            transform.GetChild(0).gameObject.SetActive(false);
         }
     }
+   
 
 
     private void BugMove()

@@ -34,7 +34,6 @@ public class PlantCollider : MonoBehaviour
             HerbivoreCollider.herbivoreOn = true;
             this.gameObject.SetActive(false);
             carnivore.gameObject.SetActive(true);
-            BugCollider.bugOn = false;
             plantOn = false;
             
         }

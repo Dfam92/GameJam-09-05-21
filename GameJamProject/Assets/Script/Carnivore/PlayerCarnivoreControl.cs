@@ -30,12 +30,12 @@ public class PlayerCarnivoreControl : MonoBehaviour
 
         if (horizontalInput < 0)
         {
-            transform.GetChild(0).eulerAngles = new Vector3(0, 0, 0);
+            transform.GetChild(1).eulerAngles = new Vector3(0, 0, 0);
             playerAnim.SetBool("IsMoving", true);
         }
         else if (horizontalInput > 0)
         {
-            transform.GetChild(0).eulerAngles = new Vector3(0, 180, 0);
+            transform.GetChild(1).eulerAngles = new Vector3(0, 180, 0);
             playerAnim.SetBool("IsMoving", true);
         }
         else
