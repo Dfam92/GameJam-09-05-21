@@ -18,6 +18,7 @@ public class HerbivoreMovement : MonoBehaviour
     void Awake()
     {
         InvokeRepeating("HerbivoreMove", 1, 0.5f);
+        
     }
     private void Update()
     {
@@ -26,7 +27,9 @@ public class HerbivoreMovement : MonoBehaviour
             
             this.gameObject.GetComponent<PlayerHerbivoreControl>().enabled = true;
             transform.GetChild(0).gameObject.SetActive(true);
-           
+            Dig();
+
+
         }
         else
         {
@@ -34,6 +37,7 @@ public class HerbivoreMovement : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
 
         }
+        
     }
 
     
@@ -49,5 +53,21 @@ public class HerbivoreMovement : MonoBehaviour
 
         }
         
+    }
+
+    private void Dig()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            EarthCollider.isDigging = true;
+            StartCoroutine(stopDig());
+        }
+       
+    }
+
+    IEnumerator stopDig()
+    {
+        yield return new WaitForSeconds(0.5f);
+        EarthCollider.isDigging = false;
     }
 }

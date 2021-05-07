@@ -8,6 +8,7 @@ TagManager:
   - Herbivore
   - Bug
   - Carnivore
+  - Earth
   layers:
   - Default
   - TransparentFX

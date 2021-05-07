@@ -24,9 +24,7 @@ public class PlayerHerbivoreControl : MonoBehaviour
     private void PlayerMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
         playerRb.AddForce(Vector2.right * speed * horizontalInput);
-        playerRb.AddForce(Vector2.up * speed * verticalInput);
         
         if(horizontalInput < 0)
         {

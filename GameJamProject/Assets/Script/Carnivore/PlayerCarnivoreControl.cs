@@ -7,6 +7,7 @@ public class PlayerCarnivoreControl : MonoBehaviour
     public Rigidbody2D playerRb;
 
     [SerializeField] private float speed;
+    [SerializeField] private float jumpForce;
     private Animator playerAnim;
 
     // Start is called before the first frame update
@@ -19,14 +20,17 @@ public class PlayerCarnivoreControl : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        jump();
     }
+
+   
 
     private void PlayerMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        
         playerRb.AddForce(Vector2.right * speed * horizontalInput);
-        playerRb.AddForce(Vector2.up * speed * verticalInput);
+        
 
         if (horizontalInput < 0)
         {
@@ -42,5 +46,14 @@ public class PlayerCarnivoreControl : MonoBehaviour
         {
             playerAnim.SetBool("IsMoving", false);
         }
+    }
+
+    private void jump()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        }
+        
     }
 }
