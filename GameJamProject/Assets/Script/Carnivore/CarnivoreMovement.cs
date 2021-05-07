@@ -8,6 +8,7 @@ public class CarnivoreMovement : MonoBehaviour
     public GameObject herbivore;
     public Rigidbody2D carnivoreRb;
     private Animator playerAnim;
+    public GameObject carnivoreObjective;
 
     [SerializeField] private float speedCarnivore;
 
@@ -16,6 +17,7 @@ public class CarnivoreMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        carnivoreObjective.SetActive(true);
         playerAnim = GetComponentInChildren<Animator>();
     } 
     private void Awake()
@@ -29,11 +31,13 @@ public class CarnivoreMovement : MonoBehaviour
             
             this.gameObject.GetComponent<PlayerCarnivoreControl>().enabled = true;
             transform.GetChild(0).gameObject.SetActive(true);
+            
         }
        else
         {
             this.gameObject.GetComponent<PlayerCarnivoreControl>().enabled = false;
-           
+            
+
         }
     }
 
@@ -48,5 +52,13 @@ public class CarnivoreMovement : MonoBehaviour
             transform.GetChild(1).eulerAngles = new Vector3(0, 180, 0);
         }
             
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("CarnivoreObjective"))
+        {
+            Destroy(carnivoreObjective);
+        }
     }
 }

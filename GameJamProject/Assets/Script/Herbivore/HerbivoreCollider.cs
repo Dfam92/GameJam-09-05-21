@@ -24,17 +24,17 @@ public class HerbivoreCollider : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collision.gameObject.CompareTag("Carnivore"))
         {
             transform.position = originalPos;
             CarnivoreCollider.carnivoreOn = true;
             this.gameObject.SetActive(false);
-            bug.gameObject.SetActive(true);
             herbivoreOn = false;
         }
     }
+
+    
 }
 

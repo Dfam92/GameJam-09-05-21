@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class BugMovement : MonoBehaviour
 {
-    
-    public GameObject carnivore;
+
+    public GameObject bugObjective;
     public Rigidbody2D bugRb;
-    
-    [SerializeField] private float speedbug;
-
-
-
+    [SerializeField] private float impulseForce;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -19,31 +16,41 @@ public class BugMovement : MonoBehaviour
     }
     private void Awake()
     {
-        InvokeRepeating("BugMove", 1, 0.5f);
+        Invoke("BugImpulse",0);
     }
     private void Update()
     {
         if (BugCollider.bugOn == true)
         {
-            CancelInvoke();
+            
             this.gameObject.GetComponent<PlayerBugControl>().enabled = true;
             transform.GetChild(0).gameObject.SetActive(true);
+         
         }
         else
         {
+            
             this.gameObject.GetComponent<PlayerBugControl>().enabled = false;
             transform.GetChild(0).gameObject.SetActive(false);
+            
         }
     }
    
-
-
-    private void BugMove()
+    private void BugImpulse()
     {
-        
-        
-        bugRb.AddForce((carnivore.transform.position - transform.position) * speedbug);
-        
+        if (BugCollider.bugOn == true)
+        {
+            bugRb.AddForce(Vector3.up * impulseForce, ForceMode2D.Impulse);
+        }
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("BugObjective"))
+        {
+            Destroy(bugObjective);
+        }
+    }
+
 }

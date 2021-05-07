@@ -9,7 +9,10 @@ public class CarnivoreCollider : MonoBehaviour
     public Rigidbody2D carnivoreRb;
 
     public static bool carnivoreOn;
-    Vector2 originalPos;
+
+    private Vector2 deathPos;
+    private Vector2 originalPos;
+    [SerializeField] private Vector2 offSetPos;
 
     // Start is called before the first frame update
 
@@ -23,19 +26,20 @@ public class CarnivoreCollider : MonoBehaviour
     {
 
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Bug") && BugCollider.bugOn == false)
+       if (collision.gameObject.CompareTag("Spikes"))
         {
-            
-            
+            deathPos = transform.position;
+            bug.transform.position = deathPos + offSetPos;
             transform.position = originalPos;
             BugCollider.bugOn = true;
             this.gameObject.SetActive(false);
             plant.gameObject.SetActive(true);
             carnivoreOn = false;
+            bug.SetActive(true);
         }
     }
+
+    
 }

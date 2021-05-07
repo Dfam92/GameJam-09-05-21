@@ -9,7 +9,8 @@ public class PlayerCarnivoreControl : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     private Animator playerAnim;
-
+    private bool isJumping;
+    private bool isOnGround;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,12 @@ public class PlayerCarnivoreControl : MonoBehaviour
     {
         PlayerMovement();
         jump();
-    }
 
-   
+
+
+    }
+    
+
 
     private void PlayerMovement()
     {
@@ -50,10 +54,24 @@ public class PlayerCarnivoreControl : MonoBehaviour
 
     private void jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true && isJumping == false) 
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            isJumping = true;
+            isOnGround = false;
+            
         }
         
+    }
+
+   
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("ground"))
+        {
+            isOnGround = true;
+            isJumping = false;
+        }
     }
 }

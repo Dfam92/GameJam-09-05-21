@@ -7,12 +7,14 @@ public class HerbivoreMovement : MonoBehaviour
     public GameObject plant;
     public Rigidbody2D herbivoreRb;
     private Animator playerAnim;
+    public GameObject herbivoreObjective;
 
     [SerializeField] private float speedHerbivore;
 
     // Start is called before the first frame update
     private void Start()
     {
+        herbivoreObjective.SetActive(true);
         playerAnim = GetComponentInChildren<Animator>();
     }
     void Awake()
@@ -28,6 +30,7 @@ public class HerbivoreMovement : MonoBehaviour
             this.gameObject.GetComponent<PlayerHerbivoreControl>().enabled = true;
             transform.GetChild(0).gameObject.SetActive(true);
             Dig();
+            
 
 
         }
@@ -35,6 +38,7 @@ public class HerbivoreMovement : MonoBehaviour
         {
             this.gameObject.GetComponent<PlayerHerbivoreControl>().enabled = false;
             transform.GetChild(0).gameObject.SetActive(false);
+            
 
         }
         
@@ -69,5 +73,13 @@ public class HerbivoreMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         EarthCollider.isDigging = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("HerbivoreObjective"))
+        {
+            Destroy(herbivoreObjective);
+        }
     }
 }

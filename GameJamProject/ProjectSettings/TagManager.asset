@@ -9,6 +9,12 @@ TagManager:
   - Bug
   - Carnivore
   - Earth
+  - Spikes
+  - ground
+  - BugObjective
+  - PlantObjective
+  - HerbivoreObjective
+  - CarnivoreObjective
   layers:
   - Default
   - TransparentFX
