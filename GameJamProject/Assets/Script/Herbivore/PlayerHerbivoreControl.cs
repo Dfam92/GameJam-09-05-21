@@ -5,20 +5,28 @@ using UnityEngine;
 public class PlayerHerbivoreControl : MonoBehaviour
 {
     public Rigidbody2D playerRb;
-
+    public GameObject herbivoreObjective;
     [SerializeField] private float speed;
     private Animator playerAnim;
+
+    
+    public GameObject treasure;
+    
+   
 
     // Start is called before the first frame update
     void Start()
     {
         playerAnim = GetComponentInChildren<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerMovement();
+       
+        
     }
 
     private void PlayerMovement()
@@ -41,4 +49,21 @@ public class PlayerHerbivoreControl : MonoBehaviour
             playerAnim.SetBool("IsMoving", false);
         }
     }
+
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            
+            if (collision.gameObject.CompareTag("Treasure"))
+            {
+                Instantiate(herbivoreObjective, treasure.transform.position, treasure.transform.rotation);
+                Destroy(treasure, 0.1f);
+            }
+        }
+        
+
+    }
+
 }

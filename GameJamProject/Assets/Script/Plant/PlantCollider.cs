@@ -28,14 +28,11 @@ public class PlantCollider : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Herbivore"))
         {
-            
-            
             transform.position = originalPos;
             HerbivoreCollider.herbivoreOn = true;
             this.gameObject.SetActive(false);
             carnivore.gameObject.SetActive(true);
             plantOn = false;
-            
         }
 
     }

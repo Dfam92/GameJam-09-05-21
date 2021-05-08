@@ -9,6 +9,7 @@ public class CarnivoreMovement : MonoBehaviour
     public Rigidbody2D carnivoreRb;
     private Animator playerAnim;
     public GameObject carnivoreObjective;
+    private GameManager gameManager;
 
     [SerializeField] private float speedCarnivore;
 
@@ -17,6 +18,7 @@ public class CarnivoreMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         carnivoreObjective.SetActive(true);
         playerAnim = GetComponentInChildren<Animator>();
     } 
@@ -58,6 +60,7 @@ public class CarnivoreMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("CarnivoreObjective"))
         {
+            gameManager.UpdateColection(1);
             Destroy(carnivoreObjective);
         }
     }

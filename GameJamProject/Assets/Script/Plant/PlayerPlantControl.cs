@@ -6,6 +6,8 @@ public class PlayerPlantControl : MonoBehaviour
 {
     public Rigidbody2D playerRb;
     private Animator playerAnim;
+    public GameObject plantObjective;
+    private GameManager gameManager;
 
     [SerializeField] private float speed;
     [SerializeField] private float rootForce;
@@ -13,6 +15,7 @@ public class PlayerPlantControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerAnim = GetComponentInChildren<Animator>();
     }
 
@@ -37,8 +40,6 @@ public class PlayerPlantControl : MonoBehaviour
         {
             playerAnim.SetBool("IsMoving", false);
         }
-        
-        
     }
 
     private void Boost()
@@ -46,6 +47,15 @@ public class PlayerPlantControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerRb.AddRelativeForce(Vector2.down * rootForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlantObjective"))
+        {
+            gameManager.UpdateColection(1);
+            Destroy(plantObjective);
         }
     }
 }

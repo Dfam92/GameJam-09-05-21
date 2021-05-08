@@ -23,8 +23,6 @@ public class PlayerCarnivoreControl : MonoBehaviour
         PlayerMovement();
         jump();
 
-
-
     }
     
 

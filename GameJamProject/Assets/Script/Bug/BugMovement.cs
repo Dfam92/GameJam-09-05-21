@@ -8,11 +8,13 @@ public class BugMovement : MonoBehaviour
     public GameObject bugObjective;
     public Rigidbody2D bugRb;
     [SerializeField] private float impulseForce;
- 
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
     }
     private void Awake()
     {
@@ -20,25 +22,30 @@ public class BugMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (BugCollider.bugOn == true)
+        if (BugCollider.bugOn == true )
         {
-            
             this.gameObject.GetComponent<PlayerBugControl>().enabled = true;
             transform.GetChild(0).gameObject.SetActive(true);
-         
         }
         else
         {
-            
             this.gameObject.GetComponent<PlayerBugControl>().enabled = false;
             transform.GetChild(0).gameObject.SetActive(false);
-            
+        }
+
+        if(gameManager.isActive==false)
+        {
+            bugRb.gravityScale = 0;
+        }
+        else
+        {
+            bugRb.gravityScale = 1.6f;
         }
     }
    
     private void BugImpulse()
     {
-        if (BugCollider.bugOn == true)
+        if ( gameManager.isActive == true)
         {
             bugRb.AddForce(Vector3.up * impulseForce, ForceMode2D.Impulse);
         }
@@ -49,6 +56,7 @@ public class BugMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BugObjective"))
         {
+            gameManager.UpdateColection(1);
             Destroy(bugObjective);
         }
     }

@@ -6,7 +6,7 @@ public class PlantMovement : MonoBehaviour
 {
     
     public Rigidbody2D plantRb;
-    public GameObject plantObjective;
+   
 
 
    
@@ -31,12 +31,6 @@ public class PlantMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("PlantObjective"))
-        {
-            Destroy(plantObjective);
-        }
-    }
+   
 
 }

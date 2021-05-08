@@ -9,21 +9,30 @@ public class PlayerBugControl : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float speedFly;
     private Animator bugAnim;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         bugAnim = GetComponentInChildren<Animator>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     
     void Update()
-    {
-        PlayerBugAnim();
+    {if (gameManager.isActive == true)
+        {
+            PlayerBugAnim();
+        }
+        
     }
     private void FixedUpdate()
     {
-        PlayerMovement();
+        if (gameManager.isActive == true)
+        {
+            PlayerMovement();
+        }
+           
     }
 
     private void PlayerMovement()
