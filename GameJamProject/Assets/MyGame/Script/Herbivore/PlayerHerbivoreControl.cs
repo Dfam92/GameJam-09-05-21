@@ -4,37 +4,37 @@ using UnityEngine;
 
 public class PlayerHerbivoreControl : MonoBehaviour
 {
-    public Rigidbody2D playerRb;
-    public GameObject herbivoreObjective;
-    public float speed = 5;
     private Animator playerAnim;
     private AudioSource audioPlayer;
-    
 
+    public Rigidbody2D playerRb;
     public AudioClip herbivoreWalk;
     public AudioClip digging;
 
     public List<GameObject> earths;
     public GameObject treasure;
+    public GameObject herbivoreObjective;
+
     public bool herbivoreIsMoving = false;
-   
+    public float speed = 5;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerAnim = GetComponentInChildren<Animator>();
         audioPlayer = GetComponent<AudioSource>();
-        
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
         PlaySound();
-       
-        
+        HerbivoreAnimation();
+    }
+    private void FixedUpdate()
+    {
+        PlayerMovement();
     }
 
     private void PlayerMovement()
@@ -45,13 +45,27 @@ public class PlayerHerbivoreControl : MonoBehaviour
         if(horizontalInput < 0)
         {
             transform.GetChild(1).eulerAngles = new Vector3(0, 0, 0);
-            playerAnim.SetBool("IsMoving", true);
-            herbivoreIsMoving = true;
-            
         }
         else if (horizontalInput > 0)
         {
             transform.GetChild(1).eulerAngles = new Vector3(0, 180, 0);
+        }
+        
+    }
+
+    private void HerbivoreAnimation()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        
+
+        if (horizontalInput < 0)
+        {
+            playerAnim.SetBool("IsMoving", true);
+            herbivoreIsMoving = true;
+
+        }
+        else if (horizontalInput > 0)
+        {
             playerAnim.SetBool("IsMoving", true);
             herbivoreIsMoving = true;
         }
@@ -91,9 +105,7 @@ public class PlayerHerbivoreControl : MonoBehaviour
             if (collision.gameObject.CompareTag("Treasure"))
             {
                 Instantiate(herbivoreObjective, treasure.transform.position, treasure.transform.rotation);
-                
                 audioPlayer.PlayOneShot(digging, 0.1f);
-
                 Destroy(treasure, 0.1f);
             }
             

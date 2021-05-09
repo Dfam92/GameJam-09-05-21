@@ -8,6 +8,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public bool isActive;
+
     public GameObject titleScreen;
     public TextMeshProUGUI contItensText;
     public GameObject gameOverScreen;
@@ -33,7 +34,6 @@ public class GameManager : MonoBehaviour
         isActive = true;
         titleScreen.gameObject.SetActive(false);
         contItensText.gameObject.SetActive(true);
-        
     }
 
     public void GameOver()
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
             gameOverScreen.gameObject.SetActive(true);
             contItensText.gameObject.SetActive(false);
             audioPlayer.Stop();
+            StartCoroutine(ChangeScene());
         }
     }
 
@@ -54,5 +55,11 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene("GameOverScene");
     }
 }

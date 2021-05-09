@@ -6,20 +6,23 @@ public class PlayerCarnivoreControl : MonoBehaviour
 {
     public Rigidbody2D playerRb;
     public GameObject carnivoreObjective;
+    public AudioClip carnivoreWalk;
+    public AudioClip carnivoreCollected;
 
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
-    private Animator playerAnim;
+
+    
     private bool isJumping;
     private bool isOnGround;
+
     public bool carnivoreIsMoving;
 
     private GameManager gameManager;
-
+    private Animator playerAnim;
     private AudioSource audioPlayer;
 
-    public AudioClip carnivoreWalk;
-    public AudioClip carnivoreCollected;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +36,15 @@ public class PlayerCarnivoreControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
         jump();
         PlaySound();
+        CarnivoreAnimation();
     }
-    
+    private void FixedUpdate()
+    {
+        PlayerMovement();
+    }
+
     private void PlayerMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -48,20 +55,14 @@ public class PlayerCarnivoreControl : MonoBehaviour
         if (horizontalInput < 0)
         {
             transform.GetChild(1).eulerAngles = new Vector3(0, 0, 0);
-            playerAnim.SetBool("IsMoving", true);
-            carnivoreIsMoving = true;
+            
         }
         else if (horizontalInput > 0)
         {
             transform.GetChild(1).eulerAngles = new Vector3(0, 180, 0);
-            playerAnim.SetBool("IsMoving", true);
-            carnivoreIsMoving = true;
+            
         }
-        else
-        {
-            playerAnim.SetBool("IsMoving", false);
-            carnivoreIsMoving = false;
-        }
+       
     }
 
     private void jump()
@@ -72,9 +73,34 @@ public class PlayerCarnivoreControl : MonoBehaviour
             isJumping = true;
             isOnGround = false;
             carnivoreIsMoving = false;
-            
         }
         
+    }
+
+    private void CarnivoreAnimation()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        
+
+
+        if (horizontalInput < 0)
+        {
+            
+            playerAnim.SetBool("IsMoving", true);
+            carnivoreIsMoving = true;
+        }
+        else if (horizontalInput > 0)
+        {
+            
+            playerAnim.SetBool("IsMoving", true);
+            carnivoreIsMoving = true;
+        }
+        else
+        {
+            playerAnim.SetBool("IsMoving", false);
+            carnivoreIsMoving = false;
+        }
     }
 
     private void PlaySound()

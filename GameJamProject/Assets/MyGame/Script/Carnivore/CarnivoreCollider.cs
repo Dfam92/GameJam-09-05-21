@@ -7,8 +7,7 @@ public class CarnivoreCollider : MonoBehaviour
     public GameObject plant;
     public GameObject bug;
     public Rigidbody2D carnivoreRb;
-    
-
+    public GameObject carnePodre;
     public AudioClip biteHerbivore;
 
     private AudioSource audioPlayer;
@@ -16,8 +15,10 @@ public class CarnivoreCollider : MonoBehaviour
     public bool carnivoreOn;
 
     private bool wasEaten;
+
     private Vector2 deathPos;
     private Vector2 originalPos;
+
     [SerializeField] private Vector2 offSetPos;
 
     // Start is called before the first frame update
@@ -27,11 +28,6 @@ public class CarnivoreCollider : MonoBehaviour
         audioPlayer = GetComponent<AudioSource>();
         originalPos = gameObject.transform.position;
         
-    }
-
-    private void Awake()
-    {
-      
     }
 
     // Update is called once per frame
@@ -60,13 +56,11 @@ public class CarnivoreCollider : MonoBehaviour
         }
       
     }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
        if (collision.gameObject.CompareTag("Spikes"))
         {
-            
+            Instantiate(carnePodre, transform.position,carnePodre.transform.rotation);
             deathPos = transform.position;
             bug.transform.position = deathPos + offSetPos;
             transform.position = originalPos;
@@ -76,10 +70,11 @@ public class CarnivoreCollider : MonoBehaviour
             carnivoreOn = false;
             bug.SetActive(true);
             transform.GetChild(0).gameObject.SetActive(false);
-           
             
         }
     }
 
+    
+    
    
 }

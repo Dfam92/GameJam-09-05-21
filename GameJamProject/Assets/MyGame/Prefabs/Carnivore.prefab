@@ -102,6 +102,7 @@ MonoBehaviour:
   plant: {fileID: 0}
   bug: {fileID: 0}
   carnivoreRb: {fileID: 1889612083387441153}
+  carnePodre: {fileID: 0}
   biteHerbivore: {fileID: 0}
   carnivoreOn: 0
   offSetPos: {x: 0, y: 0}

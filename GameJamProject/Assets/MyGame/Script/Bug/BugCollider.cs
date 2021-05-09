@@ -7,24 +7,13 @@ public class BugCollider : MonoBehaviour
     public GameObject herbivore;
     public GameObject plant;
     public Rigidbody2D bugRb;
+
     public static bool bugOn = true;
+
     public bool wasEaten;
     public bool pantherDead;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,12 +23,8 @@ public class BugCollider : MonoBehaviour
             wasEaten = true;
             this.gameObject.SetActive(false);
             PlantCollider.plantOn = true;
-            herbivore.gameObject.SetActive(true);
-            
+            herbivore.gameObject.SetActive(true);   
         }
-        
-
-
     }
 
     

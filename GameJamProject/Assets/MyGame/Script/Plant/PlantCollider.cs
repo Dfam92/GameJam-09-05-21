@@ -7,9 +7,13 @@ public class PlantCollider : MonoBehaviour
     public GameObject carnivore;
     public GameObject herbivore;
     public Rigidbody2D plantRb;
+
     private HerbivoreCollider herbivoreCollider;
+
     public bool plantWasEaten;
+
     public static bool plantOn;
+
     Vector2 originalPos;
 
     // Start is called before the first frame update
@@ -17,12 +21,6 @@ public class PlantCollider : MonoBehaviour
     {
         originalPos = gameObject.transform.position;
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

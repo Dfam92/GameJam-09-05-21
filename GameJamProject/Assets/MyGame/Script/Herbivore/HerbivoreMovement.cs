@@ -6,9 +6,12 @@ public class HerbivoreMovement : MonoBehaviour
 {
     public GameObject plant;
     public Rigidbody2D herbivoreRb;
+
     private Animator playerAnim;
-    public float speedHerbivore;
     private HerbivoreCollider herbivoreCollider;
+
+    public float speedHerbivore;
+    
 
     // Start is called before the first frame update
     private void Start()
@@ -24,15 +27,11 @@ public class HerbivoreMovement : MonoBehaviour
     {
         if(herbivoreCollider.herbivoreOn == true)
         {
-        
             this.gameObject.GetComponent<PlayerHerbivoreControl>().enabled = true;
-        
         }
         else
         {
             this.gameObject.GetComponent<PlayerHerbivoreControl>().enabled = false;
-          
-           
         }
        
     }

@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerPlantControl : MonoBehaviour
 {
     public Rigidbody2D playerRb;
-    private Animator playerAnim;
     public GameObject plantObjective;
+
+    private Animator playerAnim;
     private GameManager gameManager;
     private HerbivoreMovement playerHerbivore;
     
@@ -20,7 +21,6 @@ public class PlayerPlantControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerAnim = GetComponentInChildren<Animator>();
         playerHerbivore = GameObject.Find("Herbivore").GetComponent<HerbivoreMovement>();
@@ -29,8 +29,13 @@ public class PlayerPlantControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
+        PlantAnimation();
         Boost();
+
+    }
+    private void FixedUpdate()
+    {
+        PlayerMovement();
     }
 
     private void PlayerMovement()
@@ -39,7 +44,23 @@ public class PlayerPlantControl : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         playerRb.AddForce(Vector2.right * speed * horizontalInput);
         playerRb.AddForce(Vector2.up * speed * verticalInput);
-        if(horizontalInput != 0 || verticalInput != 0)
+    }
+
+    private void Boost()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerRb.AddRelativeForce(Vector2.down * rootForce, ForceMode2D.Impulse);
+            isBoosting = true;
+        }
+    }
+
+    private void PlantAnimation()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        
+        if (horizontalInput != 0 || verticalInput != 0)
         {
             playerAnim.SetBool("IsMoving", true);
             isMoving = true;
@@ -49,16 +70,6 @@ public class PlayerPlantControl : MonoBehaviour
         {
             playerAnim.SetBool("IsMoving", false);
             isMoving = false;
-        }
-    }
-
-    private void Boost()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            playerRb.AddRelativeForce(Vector2.down * rootForce, ForceMode2D.Impulse);
-            isBoosting = true;
-           
         }
     }
 

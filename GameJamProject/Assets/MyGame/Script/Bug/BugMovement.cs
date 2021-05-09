@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BugMovement : MonoBehaviour
 {
+    [SerializeField] private float impulseForce;
 
     public GameObject bugObjective;
     public Rigidbody2D bugRb;
-    [SerializeField] private float impulseForce;
+
     private GameManager gameManager;
+
     public bool bugIsCollected;
     
 

@@ -7,12 +7,11 @@ public class HerbivoreCollider : MonoBehaviour
     public GameObject bug;
     public GameObject carnivore;
     public Rigidbody2D herbivoreRb;
+
     private CarnivoreCollider carnivoreCollider;
     
-
     public bool herbivoreOn;
     
-
     Vector2 originalPos;
 
     // Start is called before the first frame update
@@ -20,16 +19,10 @@ public class HerbivoreCollider : MonoBehaviour
     void Start()
     {
         originalPos = gameObject.transform.position;
-        
-        
     }
 
     // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Carnivore"))

@@ -7,9 +7,6 @@ public class PlantMovement : MonoBehaviour
     
     public Rigidbody2D plantRb;
    
-
-
-   
     // Update is called once per frame
     void Update()
     {

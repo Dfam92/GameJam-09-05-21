@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerBugControl : MonoBehaviour
 {
-    public Rigidbody2D playerRb;
-
     [SerializeField] private float speed;
     [SerializeField] private float speedFly;
+
     private Animator bugAnim;
     private GameManager gameManager;
-
     private AudioSource audioPlayer;
+
     public AudioClip buzzSound;
-   
+    public Rigidbody2D playerRb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,8 +57,6 @@ public class PlayerBugControl : MonoBehaviour
         else
         {
             bugAnim.SetInteger("Fly", 0);
-            
-            
         }
     }
 }

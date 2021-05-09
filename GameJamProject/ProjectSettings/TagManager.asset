@@ -16,6 +16,7 @@ TagManager:
   - HerbivoreObjective
   - CarnivoreObjective
   - Treasure
+  - Root
   layers:
   - Default
   - TransparentFX
