@@ -25,12 +25,14 @@
 
  
  Logo em seguinda realizei as artes em pixelArt utilizando o PISKEL.
- <p float="left">
+ <p float="left" backgroundcolor = "red">
   <img src = "GameJamProject/Assets/MyGame/Capivara/Capivara0.png" width = "25%">                                            
-  <img src = "GameJamProject/Assets/MyGame/Mosquito/Mosquito0.png" width = "25%">
+  <img src = "GameJamProject/Assets/MyGame/Mosquito/Mosquito0.png" width = "5%">
   <img src = "GameJamProject/Assets/MyGame/Pantera/pantera0.png" width = "25%">                                            
   <img src = "GameJamProject/Assets/MyGame/Planta/PlantaCarnivora09.png" width = "25%">
-  <img src = "GameJamProject/Assets/MyGame/Planta/Root/Root3.png" width = "25%">
+  <img src = "GameJamProject/Assets/MyGame/Planta/Root/Root3.png" width = "5%">
+  <img src = "GameJamProject/Assets/MyGame/Capivara/MonteTerra/Eath0.png" width = "5%">
+  <img src = "GameJamProject/Assets/MyGame/Mosquito/RottenMeat/sprite_0.png" width = "15%">
  </p>
 
  
