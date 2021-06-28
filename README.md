@@ -1,10 +1,14 @@
  <h1 align = center> Ciclo da Vida </h1>
  
+ <img src = "CicloDaVida.png">
+ 
  <h2 align = center>O ciclo da vida foi um jogo desenvolvido especialmente para a GameJam do Canal CSJ com o tema de loop infinito.</h2>
 
  <h3 align = center> Infinity Loop GameJam 01/05 a 09/05/2021 </h1>
  
  Após a divulgação do tema, o primeiro passo foi fazer um planejamento(GDD básico) para facilitar a visualização do projeto.
+ 
+ 
  
  Uma semana de bastante trabalho, mas muito contente com o resultado final. 
  https://gamejolt.com/games/dfam92/614993
