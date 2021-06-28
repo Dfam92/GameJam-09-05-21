@@ -8,8 +8,8 @@
  
  Após a divulgação do tema, o primeiro passo foi fazer um planejamento(GDD básico) para facilitar a visualização do projeto.
  
- 
- 
+ <img src = "WhatsApp Image 2021-06-28 at 11.36.42.jpeg">
+
  Uma semana de bastante trabalho, mas muito contente com o resultado final. 
  https://gamejolt.com/games/dfam92/614993
  este é o link para o jogo.
