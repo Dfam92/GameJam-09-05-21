@@ -1,6 +1,6 @@
  <h1 align = center> Ciclo da Vida </h1>
  
- <img src = "CicloDaVida.png">
+ <img src = "CicloDaVida.png" width = "100%" >
  
  <h2 align = center>O ciclo da vida foi um jogo desenvolvido especialmente para a GameJam do Canal CSJ com o tema de loop infinito.</h2>
 
@@ -8,14 +8,21 @@
  
  Após a divulgação do tema, o primeiro passo foi fazer um planejamento(GDD básico) para facilitar a visualização do projeto.
  
- <img src = "WhatsApp Image 2021-06-28 at 11.36.42.jpeg">
+ <p align="center">
+ <img src = "WhatsApp Image 2021-06-28 at 11.36.42.jpeg" width = "75%"  
+ </p>
 
  Com o planejamento feito, realizei um prótótipo na Unity, buscando visualizar e  viabilizar o projeto. Foram utilizados objetos primitivos
- como quadrados, círculos e outras figuras para realizar as atividades pensadas no projeto. Ao perceber que o projeto poderia ser realizado comecei
+ como quadrados, círculos e outras figuras para realizar as atividades pensadas no projeto. 
+ 
+ Ao perceber que o projeto poderia ser realizado comecei
  a pesquisar sobre os animais que iriam compor o jogo, assim como seus comportamentos. 
  
- <img src = "">
- <img src = "">
+ <p float="left">
+  <img src = "capivara-foto-pixabay_78788369.jpg" width = "25%">                                            
+  <img src = "onça.jpg" width = "25%">
+ </p>
+
  
  Logo em seguinda realizei as artes em pixelArt utilizando o PISKEL.
  
