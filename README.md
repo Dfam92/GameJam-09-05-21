@@ -35,10 +35,19 @@
   <img src = "GameJamProject/Assets/MyGame/Capivara/MonteTerra/Eath0.png" width = "10%">
   <img src = "GameJamProject/Assets/MyGame/Mosquito/RottenMeat/sprite_0.png" width = "15%">
  </p>
+ 
+ Com os códigos funcionando corretamente e com as imagens prontas, utilizei o TileMap da unity com assets da UnityAssetsStore
+ para criar o cenário, utilizei as ferramentas de  animação da unity para dar vida aos objetos, e logo em seguida comecei as 
+ buscas pelas músicas e efeitos sonoros do jogo. Utilizei o editor de Audio "Audacity" para criar os efeitos desejados em cada som.
+ 
+ Logo em seguida criei o Menu utilizando a UI da unity, a imagem com a logo foi desenvolvida no Adobe Illustrator.
+ 
+ Meu jogo foi selecionado entre os 50 melhores dentre mais de 100 jogos publicados na GameJam. No vídeo abaixo do Canal CSJ no tempo 1:19:00 os 
+ avaliadores fizeram um review do meu jogo. https://www.youtube.com/watch?v=B7dhdllB85Y&t=4688s
 
  
  
- Uma semana de bastante trabalho, mas muito contente com o resultado final. 
+ Foi uma semana de bastante trabalho, mas muito contente com o resultado final. 
  https://gamejolt.com/games/dfam92/614993
  este é o link para o jogo.
  
