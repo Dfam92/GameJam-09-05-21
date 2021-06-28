@@ -10,6 +10,18 @@
  
  <img src = "WhatsApp Image 2021-06-28 at 11.36.42.jpeg">
 
+ Com o planejamento feito, realizei um prótótipo na Unity, buscando visualizar e  viabilizar o projeto. Foram utilizados objetos primitivos
+ como quadrados, círculos e outras figuras para realizar as atividades pensadas no projeto. Ao perceber que o projeto poderia ser realizado comecei
+ a pesquisar sobre os animais que iriam compor o jogo, assim como seus comportamentos. 
+ 
+ <img src = "">
+ <img src = "">
+ 
+ Logo em seguinda realizei as artes em pixelArt utilizando o PISKEL.
+ 
+ <img src = "">
+ 
+ 
  Uma semana de bastante trabalho, mas muito contente com o resultado final. 
  https://gamejolt.com/games/dfam92/614993
  este é o link para o jogo.
