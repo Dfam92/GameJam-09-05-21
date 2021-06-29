@@ -39,12 +39,21 @@
  Com os códigos funcionando corretamente e com as imagens prontas, utilizei o TileMap da unity com assets da UnityAssetsStore
  para criar o cenário, utilizei as ferramentas de  animação da unity para dar vida aos objetos, e logo em seguida comecei as 
  buscas pelas músicas e efeitos sonoros do jogo. Utilizei o editor de Audio "Audacity" para criar os efeitos desejados em cada som.
+ <p float="left">
+  <img src = "ScreenShot3.jpg" width = "45%">                                            
+  <img src = "ScreenShot4.jpg" width = "45%">
+ </p>
  
  Logo em seguida criei o Menu utilizando a UI da unity, a imagem com a logo foi desenvolvida no Adobe Illustrator.
  
  Meu jogo foi selecionado entre os 50 melhores dentre mais de 100 jogos publicados na GameJam. No vídeo abaixo do Canal CSJ no tempo 1:19:00 os 
  avaliadores fizeram um review do meu jogo. https://www.youtube.com/watch?v=B7dhdllB85Y&t=4688s
-
+ 
+ <p float="left">
+  <img src = "Scrennshot1.jpg" width = "33%">                                            
+  <img src = "Scrennsho2.jpg" width = "33%">
+  <img src = "ScreenShot6.jpg" width = "33%">
+ </p>
  
  
  Foi uma semana de bastante trabalho, mas muito contente com o resultado final. 
