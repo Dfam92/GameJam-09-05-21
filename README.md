@@ -56,9 +56,9 @@
  </p>
  
  
- Foi uma semana de bastante trabalho, mas muito contente com o resultado final. 
+ Foi uma semana de bastante trabalho, mas muito contente com o resultado final. https://play.unity.com/mg/other/build-2nr este é o link para jogar online e
  https://gamejolt.com/games/dfam92/614993
- este é o link para o jogo.
+ este é o link para o dwonloadjogo.
  
  It Was a week of hard work but was very rewarding too. The final result was great for me because it was my first public game.
  https://gamejolt.com/games/dfam92/614993
